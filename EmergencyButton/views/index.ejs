@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="only screen and (min-width: 930px)" href="css/animate.min.css">
+	<style type="text/css">
+		.container {
+			margin-top: 20px;
+			padding: 20px;
+			background-size: cover;
+			background: #FDFC47;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #24FE41, #FDFC47);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #24FE41, #FDFC47);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		}
+
+		@font-face {
+			font-family: cartoon;
+			src: url(fonts/cartoon.ttf);
+		}
+
+		.button_slide {
+
+			box-shadow: inset 0 0 0 0 #D80286;
+			-webkit-transition: ease-out 0.4s;
+			-moz-transition: ease-out 0.4s;
+			transition: ease-out 0.4s;
+		}
+
+		.slide_right:hover {
+			box-shadow: inset 400px 0 0 0 #D80286;
+		}
+	</style>
+	<script src="js/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	    </script>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="row">
+			<h1 align="center" style="font-family: cartoon;font-size: 87px;" class="tada wow">Public Health Care Portal</h1>
+		</div>
+		<div class="row">
+			<div class="wow fadeInRight col-md-4" data-wow-delay="0.2s">
+				<button class="btn btn-lg btn-success" style="background: #5A3F37;  /* fallback for old browsers */
+						background: -webkit-linear-gradient(to right, #2C7744, #5A3F37);  /* Chrome 10-25, Safari 5.1-6 */
+						background: linear-gradient(to right, #2C7744, #5A3F37); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+						 margin: 5px; width: 300px; height: 400px;">
+					<h1>MEDICINE<br> CHECK</h1>
+				</button>
+			</div>
+			<div class="wow bounceInUp col-md-4" data-wow-delay="0.2s">
+				<form method="post" action="http://localhost:3003/requests/new">
+					<input type="text" hidden name="name" value="Test name">
+					<input type="text" hidden name="age" value="38">
+					<input type="text" hidden name="sex" value="Male">
+					<input type="text" hidden name="location" id="loc">
+					<input type="number" hidden name="PatientNo" value="9897567274">
+					<input type="text" name="latitude" hidden id="lat">
+					<input type="text" name="longitude" hidden id="long">
+
+				</form>
+				<button onclick="starttimer()" data-toggle="modal" data-target="#myModal" class="btn btn-lg btn-danger" style="background-color: red; margin: 5px; width: 300px; height: 400px;">
+					<h1>EMERGENCY</h1>
+				</button>
+			</div>
+			<div class="wow fadeInRight col-md-4" data-wow-delay="0.2s">
+				<button onclick="location.href='http://localhost:3005'" class="btn btn-lg btn-success" style="background: #5A3F37;  /* fallback for old browsers */
+						background: -webkit-linear-gradient(to right, #2C7744, #5A3F37);  /* Chrome 10-25, Safari 5.1-6 */
+						background: linear-gradient(to right, #2C7744, #5A3F37); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+						 margin: 5px; width: 300px; height: 400px;">
+					<h1>MEDICAL<br> CHATBOT</h1>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">SENDING YOUR REQUEST</h4>
+				</div>
+				<div class="text-center modal-body">
+					<h1 style="font-size: 50px;" id="timer"></h1>
+				</div>
+				<div class="modal-footer text-center">
+					<button onclick="cancel()" type="button" class="btn btn-lg btn-info" data-dismiss="modal">CANCEL THE REQUEST</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("button").hover(function () {
+		$(this).toggleClass("wow button_slide slide_right");
+	});
+</script>
+<script>
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition);
+	} else {
+		console.log("Error");
+	}
+
+	function showPosition(position) {
+		document.getElementById("lat").value = position.coords.latitude;
+		document.getElementById("long").value = position.coords.longitude;
+		console.log(position.coords.latitude);
+		console.log(position.coords.longitude);
+	}
+</script>
+<script type="text/javascript">
+	function starttimer() {
+		var time = 10;
+
+		function countdown() {
+			document.getElementById('timer').innerHTML = time;
+			time--;
+			if (time < 0) {
+				$("#myModal").css("visibility", "hidden");
+
+				$(function () {
+					$("form").delay(10).submit();
+				});
+			}
+		}
+		setInterval(countdown, 1000);
+
+	}
+
+	function cancel() {
+		location.reload();
+	}
+</script>
+
+</html>

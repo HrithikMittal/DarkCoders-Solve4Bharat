@@ -1,0 +1,21 @@
+*{
+    margin:0px;
+    padding: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+body{
+    
+}
+.select{
+    margin-top: 10px;
+    background: url(../images/bac.jpeg) no-repeat center center;
+    background-size: cover;
+    height: 900px;
+}
+.input-tag{
+    margin:150px 0px 0px 500px;
+}
+.space{
+    margin: 20px 0px;
+    height:00px;
+}

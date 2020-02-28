@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dragonov</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-7243260-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+	</head>
+	<body>
+		<div class="container">
+
+			<div style="height: 200px;"></div>
+			
+
+<!--			<h1>Slicebox <span>A fresh 3D image slider with graceful fallback</span></h1>-->
+			
+			
+
+			<div class="wrapper">
+
+				<ul id="sb-slider" class="sb-slider">
+					<li>
+						<a ><img src="images/image.jpeg" width="780px" height="400px;" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Creative Lifesaver</h3>
+						</div>
+					</li>
+					<li>
+						<a target="_blank"><img src="images/image2.jpeg" width="780px" height="400px;" alt="image2"/></a>
+						<div class="sb-description">
+							<h3>Honest Entertainer</h3>
+						</div>
+					</li>
+					<li>
+						<a target="_blank"><img src="images/image3.jpeg" width="780px" height="400px;" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Brave Astronaut</h3>
+						</div>
+					</li>
+
+					<li>
+						<a target="_blank"><img src="images/image4.jpeg" width="780px" height="400px;" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Affectionate Decision Maker</h3>
+						</div>
+					</li>
+					<li>
+						<a target="_blank"><img src="images/image5.jpeg" width="780px" height="400px;" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Faithful Investor</h3>
+						</div>
+					</li>
+					<li>
+						<a target="_blank"><img src="images/image6.PNG" width="780px" height="400px;" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Groundbreaking Artist</h3>
+						</div>
+					</li>
+					<li>
+						<a target="_blank"><img src="images/image7.jpg" width="780px" height="400px;" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Selfless Philantropist</h3>
+						</div>
+					</li>
+
+				</ul>
+
+				<div id="shadow" class="shadow"></div>
+
+				<div id="nav-arrows" class="nav-arrows">
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div>
+
+			</div><!-- /wrapper -->
+			
+
+		</div>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$shadow.show();
+
+							},
+							orientation : 'r',
+							cuboidsRandom : true,
+							disperseFactor : 30
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+		</script>
+		
+	</body>
+</html>	

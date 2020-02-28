@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Health Care Search</title>
+
+    <!--  -->
+
+    <style>
+        .box {
+            height: 50%;
+            width: 100%;
+            border-radius: 20px;
+            border: solid 2px black;
+            background-color: white;
+            font-size: 30px;
+        }
+.container{
+			background: #a64bf4;
+			background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
+			background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
+			background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
+			background: linear-gradient(45deg, #00dbde, #fc00ff); 
+			width: 100%;  
+			min-height: 100vh;
+			justify-content: center;
+			align-items: center;
+			padding-left: 100px;
+			padding-right:100px;
+  		}
+        body {
+            height: 60%;
+            background: #FDFC47;
+            background: -webkit-linear-gradient(to right, #24FE41, #FDFC47);
+            background: linear-gradient(to right, #24FE41, #FDFC47);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container" style="text-align: center;">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                <div class="box" style="margin-top: 7%;font-size: 250%; font-family: Night Machine;" role="alert">Your
+                    Block Chain is</div><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                <form name="myForm" action="http://localhost:3000/find" method="POST">
+                    <div class="box" style="height: 200px;">
+                        <div class="" style="text-align: center; margin-top: 5%; font-family: Night Machine;">Click
+                            Here</div>
+
+                        <button style="border-style:none; text-align: center;margin: 20px 0px 0px 0px;border: 10px;width: 170px;font-family: Night Machine;"
+                            class="btn btn-lg btn-primary" onclick="PrintResult">Click Me</button>
+                    </div>
+
+                    <br>
+                    <!--
+
+<div class="box">
+   <div class="" style="margin: 20px 0px 0px 110px;width: 100px;float: left;">Block</div>
+   <input style="float: left;margin-top: 20px;" placeholder="&emsp; #1" type="text" disabled>
+    
+   <div class="" style="margin: 20px 0px 0px 42px;width: 100px;">Data</div>
+   <textarea style="margin-top: 20px;margin: 10px 0px 0px 40px" name="" id="" cols="34" rows="8"></textarea>
+   
+</div>
+    <br>
+<div class="box">
+   <div class="" style="margin: 20px 0px 0px 110px;width: 100px;float: left;">Block</div>
+   <input style="float: left;margin-top: 20px;" placeholder="&emsp; #2" type="text" disabled>
+    
+   <div class="" style="margin: 20px 0px 0px 42px;width: 100px;">Data</div>
+   <textarea style="margin-top: 20px;margin: 10px 0px 0px 40px" name="" id="" cols="34" rows="8"></textarea>
+   
+   
+</div>
+    <br>
+<div class="box">
+   <div class="" style="margin: 20px 0px 0px 110px;width: 100px;float: left;">Block</div>
+   <input style="float: left;margin-top: 20px;" placeholder="&emsp; #3" type="text" disabled>
+    
+   <div class="" style="margin: 20px 0px 0px 42px;width: 100px;">Data</div>
+   <textarea style="margin-top: 20px;margin: 10px 0px 0px 40px" name="" id="" cols="34" rows="8"></textarea>
+   
+   
+</div>
+-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+    </script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

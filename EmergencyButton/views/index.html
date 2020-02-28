@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="only screen and (min-width: 930px)" href="css/animate.min.css">
+	<script src="js/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	    </script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+
+		</div>
+		<div class="row">
+			<h1 align="center">Public Health Care Portal</h1>
+		</div>
+		<div class="row">
+			<div class="wow fadeInLeft col-md-4" data-wow-delay="0.2s"><button class="btn btn-lg btn-warning" style="margin: 5px; width: 300px; height: 500px;">CLICK
+					HERE</button></div>
+			<div class="wow bounceInUp col-md-4" data-wow-delay="0.2s">
+				<form action="http://localhost:3003/requests/new" method="post">
+					<input type="text" hidden name="name" value="Test name">
+					<input type="text" hidden name="age" value="38">
+					<input type="text" hidden name="sex" value="Male">
+					<input type="text" hidden name="location" id="loc">
+					<input type="number" hidden name="PatientNo" value="9897567274">
+					<input type="text" name="latitude" hidden id="lat">
+					<input type="text" name="longitude" hidden id="long">
+					<button type="submit" class="btn btn-lg btn-warning" style="margin: 5px; width: 300px; height: 500px;">CLICK HERE</button>
+				</form>
+			</div>
+			<div class="wow fadeInRight col-md-4" data-wow-delay="0.2s"><button class="btn btn-lg btn-warning" style="margin: 5px; width: 300px; height: 500px;">CLICK
+					HERE</button></div>
+		</div>
+	</div>
+</body>
+<script>
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition);
+	} else {
+		console.log("Error");
+	}
+
+	function showPosition(position) {
+		document.getElementById("lat").value = position.coords.latitude;
+		document.getElementById("long").value = position.coords.longitude;
+		console.log(position.coords.latitude);
+		console.log(position.coords.longitude);
+	}
+</script>
+
+</html>

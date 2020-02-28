@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+                <link rel="stylesheet" type="text/css" href="../css/splash.css">
+    <title>DarkCoders</title>
+</head>
+<body>
+    <center><div class="box"><div class="heading" style="color: black;">
+        <h1>MEDICINA</h1>
+        <p>ALEXA TOTAL SUPPORT</p></div></center>
+        <div class="navigation">
+            <button id="sized" class="menu">
+                <span></span>
+            </button>
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content animated           zoomIn">
+                    <div class="modal-header">
+                        <span class="close">×</span>
+                    </div>
+        
+                    <div class="modal-body nav">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+</body>
+<script>// Get Modal
+    var modal = document.getElementById('myModal');
+
+    // Get pseudoelement to open Modal
+    var btn = document.getElementById("sized");
+
+    // Get the <span> element to close Modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When user clicks button, open Modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    };
+
+    // When user clicks Close (x), close Modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    };
+
+    // When user clicks anywhere outside of the Modal, close Modal
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</html>

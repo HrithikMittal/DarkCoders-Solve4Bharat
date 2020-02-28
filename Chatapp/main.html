@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <title>Document</title>
+	<style>
+	#messageArea{
+        display: block;
+      }
+	  .regform{
+			border-style: solid;
+			border-radius: 45px;
+			background: white;
+			margin-top: 20%;
+			padding: 3%;
+		}
+		.container{
+			background: #a64bf4;
+			background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
+			background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
+			background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
+			background: linear-gradient(45deg, #00dbde, #fc00ff); 
+			width: 100%;  
+			min-height: 100vh;
+			justify-content: center;
+			align-items: center;
+			padding-left: 100px;
+			padding-right:100px;
+  		}
+		.msg{
+			color:beige;
+			font-size: x-large;
+  overflow: hidden; 
+  border-right: .15em solid black; 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s ease-in;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 40% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+		#userFormArea{
+		margin: 2%;
+		}
+		h1{
+		text-align: center;
+		}
+		.chat{
+		margin: 2%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+			<br>
+				<div class="row">
+				<div class="col-md-12 col-lg-6">
+				<div class="regform" style="height:100%">
+				<div id="fb-root" style="height:100%"></div>
+				<div class="fb-comments" data-href="localhost/main.html" data-width="500" data-numposts="1" style="background-color: beige;"></div>
+				</div>
+				</div>
+				<div class="col-md-12 col-lg-6">
+				<div class="regform">
+					<h1><strong>Do you Want?</strong></h1>
+					<form action="/privatechat" method="GET" role="form">
+						<b><input type="submit" class="btn btn-large btn-block btn-default chat" style="background-color:cornflowerblue; border:solid; border-color:darkblue; border-width: 4px; border-radius: 100%; width: 95%; color: aliceblue;"value="Personal Chat"></b>
+					</form>
+					<br>
+				</div>
+				<br><br><br><br>
+				<!-- <div class = "msg">CHAT SECTION..<br><br><i class="fa fa-comments" aria-hidden="true"></i></div> -->
+					<h1 href="" class="typewrite" data-period="2000"
+						data-type='[ "Hello...", "Welcome to Chat Section...","Connect to Experts...", "Discuss Your Issues..." ]' style="color:antiquewhite;">
+						<span class="wrap"></span>
+				</h1>
+			</div>
+			<br><br><i class="fa fa-ambulance" aria-hidden="true"></i>
+				</div>
+			</div>
+</body>
+<script>
+	var TxtType = function (el, toRotate, period) {
+			this.toRotate = toRotate;
+			this.el = el;
+			this.loopNum = 0;
+			this.period = parseInt(period, 10) || 2000;
+			this.txt = '';
+			this.tick();
+			this.isDeleting = false;
+		};
+
+		TxtType.prototype.tick = function () {
+			var i = this.loopNum % this.toRotate.length;
+			var fullTxt = this.toRotate[i];
+
+			if (this.isDeleting) {
+				this.txt = fullTxt.substring(0, this.txt.length - 1);
+			} else {
+				this.txt = fullTxt.substring(0, this.txt.length + 1);
+			}
+
+			this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+			var that = this;
+			var delta = 200 - Math.random() * 100;
+
+			if (this.isDeleting) { delta /= 2; }
+
+			if (!this.isDeleting && this.txt === fullTxt) {
+				delta = this.period;
+				this.isDeleting = true;
+			} else if (this.isDeleting && this.txt === '') {
+				this.isDeleting = false;
+				this.loopNum++;
+				delta = 500;
+			}
+
+			setTimeout(function () {
+				that.tick();
+			}, delta);
+		};
+
+		window.onload = function () {
+			var elements = document.getElementsByClassName('typewrite');
+			for (var i = 0; i < elements.length; i++) {
+				var toRotate = elements[i].getAttribute('data-type');
+				var period = elements[i].getAttribute('data-period');
+				if (toRotate) {
+					new TxtType(elements[i], JSON.parse(toRotate), period);
+				}
+			}
+			// INJECT CSS
+			var css = document.createElement("style");
+			css.type = "text/css";
+			css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+			document.body.appendChild(css);
+		};
+</script>
+</html>
